@@ -5,7 +5,7 @@ base_height = 20;
 vslot_offset = 80;
 glass_thickness = 3;
 glass_rim_thickness = 4;
-glass_rim_width = 4;
+glass_rim_width = 8;
 glass_height = base_height - glass_thickness;
 heated_bed_size = 160;
 glass_rim_size = heated_bed_size - glass_rim_width;
@@ -37,9 +37,27 @@ module cut_vslot_bolts()
 
 module cut_glass_bolts()
 {
-    rotate([0,0,0]) translate([base_size - vslot_offset - 10,0,base_height-2]) rotate([0,180,0]) boltHole(3,length=14);
-    rotate([0,0,120]) translate([base_size - vslot_offset + 30 - 2,0,base_height / 2]) rotate([0,-90,0]) boltHole(3,length=14);
-    rotate([0,0,240]) translate([base_size - vslot_offset + 30 - 2,0,base_height / 2]) rotate([0,-90,0]) boltHole(3,length=14);
+    rotate([0,0,0]) translate([base_size - vslot_offset - 12,0,base_height-2]) 
+                    rotate([0,180,0]) boltHole(3,length=14);
+    rotate([0,0,120]) translate([base_size - vslot_offset - 12,0,base_height-2]) 
+                    rotate([0,180,0]) boltHole(3,length=14);
+    rotate([0,0,240]) translate([base_size - vslot_offset - 12,0,base_height-2]) 
+                    rotate([0,180,0]) boltHole(3,length=14);
+    rotate([0,0,0]) translate([base_size - vslot_offset - 12,0,base_height-14]) 
+                    rotate([0,180,0]) cylinder(r=4,h=14);
+    rotate([0,0,120]) translate([base_size - vslot_offset - 12,0,base_height-14]) 
+                    rotate([0,180,0]) cylinder(r=4,h=14);
+    rotate([0,0,240]) translate([base_size - vslot_offset - 12,0,base_height-14]) 
+                    rotate([0,180,0]) cylinder(r=4,h=14);
+    rotate([0,0,0]) translate([base_size - vslot_offset - 12,0,base_height-12]) 
+                    rotate([0,180,0]) nutHole(3);
+    rotate([0,0,120]) translate([base_size - vslot_offset - 12,0,base_height-12]) 
+                    rotate([0,180,0]) nutHole(3);
+    rotate([0,0,240]) translate([base_size - vslot_offset - 12,0,base_height-12]) 
+                    rotate([0,180,0]) nutHole(3);
+    
+    
+    
     
 }
 
