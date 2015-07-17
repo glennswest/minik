@@ -2,7 +2,7 @@ use <MCAD/nuts_and_bolts.scad>;
 
 base_size = 180;
 base_height = 20;
-vslot_offset = 80;
+vslot_offset = 100;
 glass_thickness = 3;
 glass_rim_thickness = 4;
 glass_rim_width = 8;
@@ -13,16 +13,16 @@ glass_rim_height = glass_height;
 
 module cut_corner()
 {
-    rotate([0,0,0]) translate([base_size - vslot_offset + 30,-40,-0.01]) cube([50,80,base_height + .2]);
-    rotate([0,0,120]) translate([base_size - vslot_offset + 30,-40,-0.01]) cube([50,80,base_height + .2]);
-    rotate([0,0,240]) translate([base_size - vslot_offset + 30,-40,-0.01]) cube([50,80,base_height + .2]);    
+    rotate([0,0,0]) translate([base_size - vslot_offset + 30,-40,-0.01]) cube([100,80,base_height + .2]);
+    rotate([0,0,120]) translate([base_size - vslot_offset + 30,-40,-0.01]) cube([100,80,base_height + .2]);
+    rotate([0,0,240]) translate([base_size - vslot_offset + 30,-40,-0.01]) cube([100,80,base_height + .2]);    
 }
 
 module cut_vslot()
 {
-        rotate([0,0,0]) translate([base_size - vslot_offset,-10,-0.1]) cube([20,20,base_height+.2]);
-        rotate([0,0,120]) translate([base_size - vslot_offset,-10,-0.1]) cube([20,20,base_height+.2]);
-        rotate([0,0,240]) translate([base_size - vslot_offset,-10,-0.1]) cube([20,20,base_height+.2]);    
+        rotate([0,0,0]) translate([base_size - vslot_offset+4pw,-10,-0.1]) cube([20,20,base_height+.2]);
+        rotate([0,0,120]) translate([base_size - vslot_offset+4,-10,-0.1]) cube([20,20,base_height+.2]);
+        rotate([0,0,240]) translate([base_size - vslot_offset+4,-10,-0.1]) cube([20,20,base_height+.2]);    
 }
 
 
@@ -37,23 +37,23 @@ module cut_vslot_bolts()
 
 module cut_glass_bolts()
 {
-    rotate([0,0,0]) translate([base_size - vslot_offset - 12,0,base_height-2]) 
+    rotate([0,0,20]) translate([base_size - vslot_offset + 10,0,base_height-2]) 
                     rotate([0,180,0]) boltHole(3,length=14);
-    rotate([0,0,120]) translate([base_size - vslot_offset - 12,0,base_height-2]) 
+    rotate([0,0,20+120]) translate([base_size - vslot_offset + 10,0,base_height-2]) 
                     rotate([0,180,0]) boltHole(3,length=14);
-    rotate([0,0,240]) translate([base_size - vslot_offset - 12,0,base_height-2]) 
+    rotate([0,0,20+240]) translate([base_size - vslot_offset + 10,0,base_height-2]) 
                     rotate([0,180,0]) boltHole(3,length=14);
-    rotate([0,0,0]) translate([base_size - vslot_offset - 12,0,base_height-14]) 
+    rotate([0,0,20]) translate([base_size - vslot_offset + 10,0,base_height-14]) 
                     rotate([0,180,0]) cylinder(r=4,h=14);
-    rotate([0,0,120]) translate([base_size - vslot_offset - 12,0,base_height-14]) 
+    rotate([0,0,20+120]) translate([base_size - vslot_offset + 10,0,base_height-14]) 
                     rotate([0,180,0]) cylinder(r=4,h=14);
-    rotate([0,0,240]) translate([base_size - vslot_offset - 12,0,base_height-14]) 
+    rotate([0,0,20+240]) translate([base_size - vslot_offset + 10,0,base_height-14]) 
                     rotate([0,180,0]) cylinder(r=4,h=14);
-    rotate([0,0,0]) translate([base_size - vslot_offset - 12,0,base_height-12]) 
+    rotate([0,0,20]) translate([base_size - vslot_offset + 10,0,base_height-12]) 
                     rotate([0,180,0]) nutHole(3);
-    rotate([0,0,120]) translate([base_size - vslot_offset - 12,0,base_height-12]) 
+    rotate([0,0,20+120]) translate([base_size - vslot_offset + 10,0,base_height-12]) 
                     rotate([0,180,0]) nutHole(3);
-    rotate([0,0,240]) translate([base_size - vslot_offset - 12,0,base_height-12]) 
+    rotate([0,0,20+240]) translate([base_size - vslot_offset + 10,0,base_height-12]) 
                     rotate([0,180,0]) nutHole(3);
     
     
@@ -63,6 +63,7 @@ module cut_glass_bolts()
 
 module cut_wire()
 {
+    rotate([0,0,0]) translate([base_size-vslot_offset-32,0,base_height / 2]) rotate([90,0,90]) cylinder(r=3,h=40);
     rotate([0,0,0]) translate([base_size-vslot_offset-32,-20,base_height / 2]) rotate([90,0,90]) cylinder(r=5,h=70);
     rotate([0,0,0]) translate([base_size-vslot_offset-32, 20,base_height / 2]) rotate([90,0,90]) cylinder(r=5,h=70);
     rotate([0,0,0]) translate([base_size-vslot_offset + 10, 30 ,base_height / 2]) rotate([90,0,0]) cylinder(r=5,h=60);
