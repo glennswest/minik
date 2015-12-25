@@ -20,7 +20,7 @@ module cut_corner()
 
 module cut_vslot()
 {
-        rotate([0,0,0]) translate([base_size - vslot_offset+4pw,-10,-0.1]) cube([20,20,base_height+.2]);
+        rotate([0,0,0]) translate([base_size - vslot_offset+4,-10,-0.1]) cube([20,20,base_height+.2]);
         rotate([0,0,120]) translate([base_size - vslot_offset+4,-10,-0.1]) cube([20,20,base_height+.2]);
         rotate([0,0,240]) translate([base_size - vslot_offset+4,-10,-0.1]) cube([20,20,base_height+.2]);    
 }
@@ -86,5 +86,9 @@ module body()
          }
 }
 
-body();
-cylinder(r=heated_bed_size/2,h=1);
+module basek(){
+    body();
+    cylinder(r=heated_bed_size/2,h=1);
+}
+
+basek();
